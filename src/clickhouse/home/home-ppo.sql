@@ -20,3 +20,9 @@ from default.flink_detail_ppo_all
 where appId = 'wx6025c5470c3cb50c'
   and partDate = '20210719'
 group by appId, partDate format JSON   /*非聚合类字段都要写到group by中*/
+
+/*
+视图语句：
+select * from dws.home_ppo_stat_mv_d where appId = 'wx6025c5470c3cb50c'
+and partDate = '20210719' format JSON
+*/
