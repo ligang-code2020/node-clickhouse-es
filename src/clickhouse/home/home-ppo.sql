@@ -25,7 +25,8 @@ group by appId, partDate format JSON;
 /*
 视图语句：
 */
-select *
+select appId, sum(urlCount), avg(fFirScrRenAvgTime), partDate
 from dws.home_ppo_stat_mv_d
 where appId = 'wx6025c5470c3cb50c'
-  and partDate = '20210719' format JSON
+  and partDate = '20210722'
+group by appId, partDate format JSON
