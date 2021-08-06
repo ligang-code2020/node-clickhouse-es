@@ -27,10 +27,11 @@ group by appId, partDate format JSON;
 
 耗时：348ms
 */
-select *
+select appId, sum(apiCount), avg(avgTime), partDate
 from dws.home_rho_stat_mv_d
 where appId = 'wx6025c5470c3cb50c'
-  and partDate = '20210719'
+  and partDate = '20210723'
+group by appId, partDate format JSON
 
 
 

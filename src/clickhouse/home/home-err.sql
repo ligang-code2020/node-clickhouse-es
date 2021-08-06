@@ -32,4 +32,12 @@ select *
 from dws.home_err_stat_mv_d
 where appId = 'wx6025c5470c3cb50c'
   and partDate = '20210719'
-  and errorType = 'error' format JSON
+  and errorType = 'error' format JSON;
+
+select appId, sum(errorUrlCount) as pageErrUv, sum(total) as pageErrorTotal
+from dws.home_err_stat_mv_d
+where appId = 'wx6025c5470c3cb50c'
+  and partDate = '20210719'
+  and errorType = 'error'
+group by appId, partDate, errorType
+    format JSON
